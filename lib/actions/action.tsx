@@ -30,10 +30,10 @@ export const fetchAnimeForSearchTop = async (pg: number, lm: number) => {
 };
 export const searchAnime = async (anime: any) => {
   try {
-    const res = await fetch(`${animeApi}/anime?q=${anime}`); //&order_by=popularity&sort=asc&sfw
+    const res = await fetch(`${animeApi}/anime?q=${anime}&sort=asc&sfw`); //&order_by=popularity&sort=asc&sfw
     const result = await res.json();
     const data = result?.data;
-    // console.log(data);
+    console.log(data);
     if (!data) return;
 
     return data.map((item: AnimeCardProp, index: number) => (

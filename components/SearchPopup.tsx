@@ -4,17 +4,20 @@ import { useEffect, useState } from "react";
 import { fetchAnimeForSearchTop, searchAnime } from "@/lib/actions/action";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import SearchItems from "./SearchItems";
+import { AnimeCardProp } from "@/constants/types";
 
 const SearchPopup = ({
   isOpen,
   handleSearchClose,
 }: {
-  isOpen: any;
-  handleSearchClose: any;
+  isOpen: boolean;
+  handleSearchClose: () => void;
 }) => {
   const [searchInput, setSearchInput] = useState<String>("");
-  const [topData, setTopData] = useState(null);
-  const [searchedData, setSearchedData] = useState(null);
+  const [topData, setTopData] = useState<AnimeCardProp[] | null>(null);
+  const [searchedData, setSearchedData] = useState<AnimeCardProp[] | null>(
+    null
+  );
 
   useEffect(() => {
     const fetchTopAnimes = async () => {
@@ -26,7 +29,10 @@ const SearchPopup = ({
 
     const fetchSeachAnime = async () => {
       // e.preventDefault();
-      if (searchInput == "") return null;
+      if (searchInput == "") {
+        setSearchedData(null);
+        return null;
+      }
       try {
         const data = await searchAnime(searchInput);
         // console.log(data);
@@ -49,7 +55,7 @@ const SearchPopup = ({
         globalThis.removeEventListener("keydown", handleKeyDown);
       };
     }
-  }, [topData, searchInput]);
+  }, [topData, searchInput, handleSearchClose]);
 
   // console.log(searchInput);
 
@@ -74,7 +80,6 @@ const SearchPopup = ({
                 e.preventDefault();
                 setSearchInput(e.target.value);
               }}
-              value={searchInput}
               placeholder="Search for anime"
               className="w-full p-4 rounded-md border-2 bg-transparent border-gray-400 focus:px-3 focus:border-[red] hover:border-[red] outline-none ease-in-out duration-300"
             />
@@ -83,7 +88,7 @@ const SearchPopup = ({
           <section className="z-[50] flex flex-col gap-2">
             {searchedData ? (
               <>
-                <h2 className="text-xl font-bold">Top 10 Search results</h2>
+                <h2 className="text-xl font-bold">Search results</h2>
                 {searchedData}
               </>
             ) : topData ? (
@@ -93,10 +98,14 @@ const SearchPopup = ({
               </>
             ) : (
               <>
-                <SearchItems index={1} loading={true} />
-                <SearchItems index={1} loading={true} />
-                <SearchItems index={1} loading={true} />
-                <SearchItems index={1} loading={true} />
+                {animeSample.map((item, index) => (
+                  <SearchItems
+                    key={item.mal_id}
+                    index={index + 1}
+                    anime={item}
+                    loading={true}
+                  />
+                ))}
               </>
             )}
           </section>
@@ -107,3 +116,46 @@ const SearchPopup = ({
 };
 
 export default SearchPopup;
+
+const animeSample: AnimeCardProp[] = [
+  {
+    mal_id: 0,
+    url: "/",
+    images: { jpg: { image_url: "/logo.png", large_image_url: "/logo.png" } },
+    title_english: "One Room",
+    type: "TV",
+    episodes: 0,
+    rank: 0,
+    genres: [{ mal_id: 0, name: "anime" }],
+  },
+  {
+    mal_id: 1,
+    url: "/",
+    images: { jpg: { image_url: "/logo.png", large_image_url: "/logo.png" } },
+    title_english: "One Room",
+    type: "TV",
+    episodes: 0,
+    rank: 0,
+    genres: [{ mal_id: 0, name: "anime" }],
+  },
+  {
+    mal_id: 2,
+    url: "/",
+    images: { jpg: { image_url: "/logo.png", large_image_url: "/logo.png" } },
+    title_english: "One Room",
+    type: "TV",
+    episodes: 0,
+    rank: 0,
+    genres: [{ mal_id: 0, name: "anime" }],
+  },
+  {
+    mal_id: 3,
+    url: "/",
+    images: { jpg: { image_url: "/logo.png", large_image_url: "/logo.png" } },
+    title_english: "One Room",
+    type: "TV",
+    episodes: 0,
+    rank: 0,
+    genres: [{ mal_id: 0, name: "anime" }],
+  },
+];

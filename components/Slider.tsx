@@ -10,30 +10,35 @@ interface Props {
 }
 
 const Slider = ({ anime }: Props) => {
-  const backImg = (n) => {
-    let el = document.querySelector(".blur_div");
-    if (anime[n]?.images?.jpg?.large_image_url) {
-      el.style.backgroundImage = `url('${anime[n]?.images?.jpg?.large_image_url}')`;
+  const backImg = (n: number) => {
+    const el = document.querySelector<HTMLDivElement>(".blur_div");
+    if (el && anime[n]?.images?.jpg?.large_image_url) {
+      el.style.backgroundImage = `url('${anime[n].images.jpg.large_image_url}')`;
     }
   };
 
   useEffect(() => {
     let counter = 0;
     const interval = setInterval(() => {
-      let rd = document.getElementsByName("radiobtn");
+      const rd = document.getElementsByName("radiobtn");
       for (let i = 0; i < rd.length; i++) {
-        if (rd[i].checked === true) {
+        if ((rd[i] as HTMLInputElement).checked) {
           counter = i + 1;
           break;
         }
       }
       counter = (counter % 5) + 1;
       backImg(counter - 1);
-      document.getElementById("radio" + counter).checked = true;
+      const radioElement = document.getElementById(
+        "radio" + counter
+      ) as HTMLInputElement;
+      if (radioElement) {
+        radioElement.checked = true;
+      }
     }, 5000);
 
     return () => clearInterval(interval); // Clean up the interval on component unmount
-  }, [backImg]);
+  }, [anime]);
 
   return (
     <div className="relative w-full h-[40vw] shadow-inner-[0px_-15px_13px_0px_rgba(0,0,0,1)] mb-[40px]">

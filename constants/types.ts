@@ -9,9 +9,9 @@ export interface AnimeCardProp {
   genres: [
     {
       mal_id: number;
-      type: string;
+      // type: string;
       name: string;
-      url: string;
+      // url: string;
     }
   ];
 }
@@ -151,14 +151,21 @@ export interface AnimeInfoProp {
   ];
 }
 
-export interface AnimeSliderPicturesProps {
+export interface AnimeSliderPicture {
   mal_id: number;
-  jpg: { image_url: "string"; large_image_url: "string" };
+  images: { jpg: { image_url: string; large_image_url: string } };
   trailer: { images: { maximum_image_url: string } };
 }
+
+export type AnimeSliderPicturesProps = AnimeSliderPicture[];
+
+export interface AnimePicture {
+  jpg: { image_url: string; large_image_url: string };
+}
+
 export interface AnimePicturesProps {
   length: number;
-  jpg: { image_url: "string"; large_image_url: "string" };
+  [index: number]: AnimePicture;
 }
 export interface AnimeCardProps {
   data: [];

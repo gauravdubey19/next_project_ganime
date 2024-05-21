@@ -19,7 +19,7 @@ const AnimePfp = ({ anime, pic }: Prop) => {
   const [fade, setFade] = useState(false);
 
   useEffect(() => {
-    if (pic) {
+    if (pic.length > 0) {
       setImages(pic[0].jpg.large_image_url);
       const interval = setInterval(() => {
         setFade(true);

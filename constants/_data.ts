@@ -143,3 +143,134 @@ export const data = [
   //   score: "8.39",
   // },
 ];
+
+// slider
+
+{
+  /*    import Link from "next/link";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
+import { Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+
+interface SwiperInstance {
+    slideNext: () => void;
+    slidePrev: () => void;
+  }
+
+  const [swiperInstance, setSwiperInstance] = useState<SwiperInstance | null>();
+
+  const goNext = () => {
+    if (swiperInstance) {
+      swiperInstance.slideNext();
+    }
+  };
+
+  const goPrev = () => {
+    if (swiperInstance) {
+      swiperInstance.slidePrev();
+    }
+  };
+
+  const saveSwiperInstance = (swiper: SwiperInstance) => {
+    setSwiperInstance(swiper);
+  };
+  */
+}
+
+{
+  /* <div classNameName="relative p-10 border h-80 overflow-hidden">
+        <motion.section
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            type: "keyframes",
+            stiffness: 260,
+            damping: 20,
+          }}
+          classNameName=""
+        >
+          <div classNameName="flex absolute z-10 gap-4 p-3 items-center">
+            <button
+              classNameName="bg-black/80 backdrop-blur-2xl text-white p-2 lg:p-4 rounded-full flex justify-center"
+              onClick={goPrev}
+              aria-label="go previous slide"
+            >
+              <BsArrowLeftShort size={20} />
+            </button>
+            <button
+              classNameName="bg-black/80 text-white p-2 lg:p-4 rounded-full flex justify-center"
+              onClick={goNext}
+              aria-label="go next slide"
+            >
+              <BsArrowRightShort size={20} />
+            </button>
+          </div>
+          <Swiper
+            spaceBetween={20}
+            centeredSlides={false}
+            autoplay={{
+              delay: 3500,
+              disableOnInteraction: false,
+            }}
+            modules={[Autoplay]}
+            classNameName="mySwiper"
+            onSwiper={saveSwiperInstance}
+          >
+            {data?.map((i: []) => (
+              <SwiperSlide key={i?.id}>
+                <Image
+                  src={i?.image.original}
+                  alt={`Slider of ${i?.name}`}
+                  width={500}
+                  height={500}
+                  loading="lazy"
+                  classNameName="relative aspect-auto"
+                />
+                <div classNameName="absolute text-white bg-black/50 w-full h-full">
+                  <div classNameName="absolute text-left flex gap-3 flex-col bottom-3 pb-4 md:text-4xl p-4 w-[90%]">
+                    <h1 classNameName="z-50 truncate 2xl:w-full w-[90%] lg:text-5xl lg:font-bold overflow-hidden">
+                      {i?.name}
+                    </h1>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </motion.section>
+      </div> */
+}
+
+{
+  /* <Link
+  href={`/details/${popular.id}`}
+  classNameName="bg-white text-center shadow-lg font-semibold text-black lg:w-44 lg:p-3 2xl:w-52 2xl:p-4 lg:text-2xl lg:mt-8  p-3 w-32 text-sm rounded-lg"
+>
+  Watch Now
+</Link> */
+}
+
+// hero
+
+{
+  /* <header className="bg-hero bg-center bg-cover bg-no-repeat sm:p-16 py-16 px-8 flex justify-center lg:items-center max-lg:flex-col w-full sm:gap-16 gap-0">
+        <div className="flex-1 flex flex-col gap-10">
+          <Image
+            src="./logo.svg"
+            alt="logo"
+            width={101}
+            height={96}
+            className="object-contain"
+          />
+          <h1 className="sm:text-6xl text-5xl text-white lg:max-w-lg font-bold leading-[120%]">
+            Explore The <span className="red-gradient">Diverse Realms</span> of
+            Anime Magic
+          </h1>
+        </div>
+        <div className="lg:flex-1 relative w-full h-[50vh] justify-center">
+          <Image src="/anime.png" alt="anime" fill className="object-contain" />
+        </div>
+      </header> */
+}

@@ -170,4 +170,5 @@ export interface AnimePicturesProps {
 export interface AnimeCardProps {
   data: [];
   head: string;
+  loading: boolean;
 }

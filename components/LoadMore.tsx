@@ -16,7 +16,7 @@ function LoadMore({ filterBy }: { filterBy: string }) {
   useEffect(() => {
     if (inView) {
       // alert("l m");
-      fetchCategoryAnime(pg, 8, filterBy).then((res) => {
+      fetchCategoryAnime(pg, 10, filterBy).then((res) => {
         if (!res) return null;
         setData([...data, ...res]);
         pg++;
@@ -25,7 +25,7 @@ function LoadMore({ filterBy }: { filterBy: string }) {
   }, [inView, data, filterBy]);
   return (
     <>
-      <section className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10">
+      <section className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 lg:gap-10">
         {data}
       </section>
       <section className="flex justify-center items-center w-full">

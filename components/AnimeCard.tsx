@@ -18,19 +18,20 @@ function AnimeCard({ anime, index }: Prop) {
           animate="visible"
           transition={{ delay: index * 0.25, ease: "easeInOut", duration: 0.5 }}
           viewport={{ amount: 0 }}
-          className="group max-w-sm rounded-2xl relative w-60 shadow-md shadow-zinc-800 hover:shadow-[red] scale-90 hover:scale-95 active:translate-y-1 ease-in-out duration-300 overflow-hidden"
+          className="group max-w-sm rounded-2xl relative w-48 lg:w-60 shadow-md shadow-zinc-800 hover:shadow-[red] scale-90 hover:scale-95 active:translate-y-1 ease-in-out duration-300 overflow-hidden"
         >
-          <div className="relative w-full h-[37vh] rounded-xl overflow-hidden">
+          <div className="relative w-full h-72 lg:h-[37vh] rounded-xl overflow-hidden">
             <Image
               src={anime?.images?.jpg?.large_image_url}
               alt={anime?.title_english}
-              fill
-              className="scale-105 group-hover:scale-100 ease-in-out duration-300"
+              width={200}
+              height={300}
+              className="w-full scale-105 group-hover:scale-100 ease-in-out duration-300"
             />
           </div>
           <div className="py-4 flex flex-col gap-3 px-2">
             <div className="flex justify-between items-center gap-1">
-              <h2 className="w-full font-bold text-white text-xl capitalize line-clamp-1 scale-95 group-hover:scale-100 group-hover:text-[red] ease-in-out duration-300">
+              <h2 className="w-full font-bold text-white text-lg lg:text-xl capitalize line-clamp-1 scale-95 group-hover:scale-100 group-hover:text-[red] ease-in-out duration-300">
                 {anime?.title_english}
               </h2>
               <div className="py-1 px-2 bg-[#161921] rounded-sm">
@@ -43,13 +44,13 @@ function AnimeCard({ anime, index }: Prop) {
               {anime?.episodes && (
                 <div className="flex flex-row gap-2 items-center">
                   <Image
-                    src="./episodes.svg"
+                    src="/episodes.svg"
                     alt="episodes"
                     width={20}
                     height={20}
-                    className="object-contain"
+                    className="w-4 lg:object-contain"
                   />
-                  <p className="text-base text-white font-bold">
+                  <p className="text-sm text-white font-bold">
                     {anime?.episodes}
                   </p>
                 </div>
@@ -57,13 +58,13 @@ function AnimeCard({ anime, index }: Prop) {
               {anime?.rank && (
                 <div className="flex flex-row gap-2 items-center">
                   <Image
-                    src="./star.svg"
+                    src="/star.svg"
                     alt="star"
                     width={18}
                     height={18}
-                    className="object-contain"
+                    className="w-4 lg:object-contain"
                   />
-                  <p className="text-base font-bold text-[#FFAD49]">
+                  <p className="text-sm font-bold text-[#FFAD49]">
                     {anime?.rank}
                   </p>
                 </div>

@@ -10,7 +10,7 @@ import {
 import { IoIosArrowForward } from "react-icons/io";
 import { AnimeCardProps } from "@/constants/types";
 
-const Card = ({ data, head }: AnimeCardProps) => {
+const Card = ({ data, head, loading = false }: AnimeCardProps) => {
   return (
     <>
       <div className="flex-between">
@@ -22,13 +22,13 @@ const Card = ({ data, head }: AnimeCardProps) => {
           Load more
           <IoIosArrowForward
             size={30}
-            className="group-hover:fill-[red] group-hover:scale-105 group-active:translate-x-1 ease-in-out duration-200"
+            className="group-hover:fill-[red] group-hover:scale-105 group-hover:-ml-2 group-active:translate-x-1 ease-in-out duration-200"
           />
         </Link>
       </div>
       <Carousel className="w-full h-auto -mt-8">
         <CarouselContent>
-          {data
+          {!loading
             ? data
             : Array.from({ length: 10 }).map((_, index) => (
                 <CarouselItem key={index} className="basis-1/2 lg:basis-1/6">

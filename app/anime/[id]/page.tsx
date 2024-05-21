@@ -1,7 +1,10 @@
 import React from "react";
 import { fetchAnimeInfo } from "@/lib/actions/action";
 
-const AnimePfpPage = async ({ params }: any) => {
+interface Params {
+  id: number;
+}
+const AnimePfpPage = async ({ params }: { params: Params }) => {
   if (!params.id) return;
   // console.log(params.id);
 

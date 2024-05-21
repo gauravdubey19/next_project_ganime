@@ -169,6 +169,5 @@ export interface AnimePicturesProps {
 }
 export interface AnimeCardProps {
   data: [];
-  redirectTo: string;
   head: string;
 }

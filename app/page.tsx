@@ -19,10 +19,10 @@ async function Home() {
       <Hero />
       <main className="sm:p-16 py-16 px-8 flex flex-col gap-10 text-white">
         <h2 className="text-3xl font-bold">Explore Anime</h2>
-        <Card data={popularAnime} redirectTo="/popular" head="popular" />
-        <Card data={topAnime} redirectTo="/top" head="Top" />
-        <Card data={upcomingAnime} redirectTo="/upcoming" head="upcoming" />
-        <Card data={airingAnime} redirectTo="/airing" head="airing" />
+        <Card data={popularAnime} head="popular" />
+        <Card data={topAnime} head="Top" />
+        <Card data={upcomingAnime} head="upcoming" />
+        <Card data={airingAnime} head="airing" />
       </main>
     </>
   );

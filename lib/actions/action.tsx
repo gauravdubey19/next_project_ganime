@@ -117,7 +117,7 @@ export const fetchAiringAnime = async (pg: number, lm: number) => {
     if (!data) return;
 
     return data.map((item: AnimeCardProp, index: number) => (
-      <CarouselItem key={item.mal_id} className="basis-1/4">
+      <CarouselItem key={item.mal_id} className="basis-1/5">
         <AnimeCard anime={item} index={index} />
       </CarouselItem>
     ));

@@ -10,7 +10,9 @@ import SearchItems from "@/components/SearchItems";
 
 export const fetchAnimeForSearchTop = async (pg: number, lm: number) => {
   try {
-    const res = await fetch(`${animeApi}/top/anime?page=${pg}&limit=${lm}`);
+    const res = await fetch(
+      `${animeApi}/top/anime?page=${pg}&limit=${lm}&sort=asc&sfw`
+    );
     const result = await res.json();
     const data = result?.data;
     // console.log(data);
@@ -30,7 +32,9 @@ export const fetchAnimeForSearchTop = async (pg: number, lm: number) => {
 };
 export const searchAnime = async (anime: any) => {
   try {
-    const res = await fetch(`${animeApi}/anime?q=${anime}&sort=asc&sfw`); //&order_by=popularity&sort=asc&sfw
+    const res = await fetch(
+      `${animeApi}/anime?q=${anime}&order_by=popularity&sort=asc&sfw`
+    );
     const result = await res.json();
     const data = result?.data;
     console.log(data);
@@ -55,7 +59,7 @@ export const fetchCategoryAnime = async (
 ) => {
   try {
     const res = await fetch(
-      `${animeApi}/top/anime?filter=${filterBy}&page=${pg}&limit=${lm}`
+      `${animeApi}/top/anime?filter=${filterBy}&page=${pg}&limit=${lm}&sort=asc&sfw`
     );
     const result = await res.json();
     const data = result?.data;
@@ -70,27 +74,14 @@ export const fetchCategoryAnime = async (
   }
 };
 
-export const fetchTopAnime = async (pg: number, lm: number) => {
-  try {
-    const res = await fetch(`${animeApi}/top/anime?page=${pg}&limit=${lm}`);
-    const result = await res.json();
-    const data = result?.data;
-    // console.log(data);
-    if (!data) return;
-
-    return data.map((item: AnimeCardProp, index: number) => (
-      <CarouselItem key={item.mal_id} className="basis-1/4">
-        <AnimeCard anime={item} index={index} />
-      </CarouselItem>
-    ));
-  } catch (error) {
-    console.log(error);
-  }
-};
-export const fetchUpcomingAnime = async (pg: number, lm: number) => {
+export const fetchCategoryAnimeCard = async (
+  pg: number,
+  lm: number,
+  filterBy: string
+) => {
   try {
     const res = await fetch(
-      `${animeApi}/top/anime?page=${pg}&limit=${lm}&filter=upcoming`
+      `${animeApi}/top/anime?filter=${filterBy}&page=${pg}&limit=${lm}&sort=asc&sfw`
     );
     const result = await res.json();
     const data = result?.data;
@@ -106,48 +97,67 @@ export const fetchUpcomingAnime = async (pg: number, lm: number) => {
     console.log(error);
   }
 };
-export const fetchAiringAnime = async (pg: number, lm: number) => {
-  try {
-    const res = await fetch(
-      `${animeApi}/top/anime?page=${pg}&limit=${lm}&filter=airing`
-    );
-    const result = await res.json();
-    const data = result?.data;
-    // console.log(data);
-    if (!data) return;
+// export const fetchUpcomingAnime = async (pg: number, lm: number) => {
+//   try {
+//     const res = await fetch(
+//       `${animeApi}/top/anime?page=${pg}&limit=${lm}&filter=upcoming&sort=asc&sfw`
+//     );
+//     const result = await res.json();
+//     const data = result?.data;
+//     // console.log(data);
+//     if (!data) return;
 
-    return data.map((item: AnimeCardProp, index: number) => (
-      <CarouselItem key={item.mal_id} className="basis-1/5">
-        <AnimeCard anime={item} index={index} />
-      </CarouselItem>
-    ));
-  } catch (error) {
-    console.log(error);
-  }
-};
-export const fetchPopularAnime = async (pg: number, lm: number) => {
-  try {
-    const res = await fetch(
-      `${animeApi}/top/anime?page=${pg}&limit=${lm}&filter=bypopularity`
-    );
-    const result = await res.json();
-    const data = result?.data;
-    // console.log(data);
-    if (!data) return;
+//     return data.map((item: AnimeCardProp, index: number) => (
+//       <CarouselItem key={item.mal_id} className="basis-1/4">
+//         <AnimeCard anime={item} index={index} />
+//       </CarouselItem>
+//     ));
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+// export const fetchAiringAnime = async (pg: number, lm: number) => {
+//   try {
+//     const res = await fetch(
+//       `${animeApi}/top/anime?page=${pg}&limit=${lm}&filter=airing&sort=asc&sfw`
+//     );
+//     const result = await res.json();
+//     const data = result?.data;
+//     // console.log(data);
+//     if (!data) return;
 
-    return data.map((item: AnimeCardProp, index: number) => (
-      <CarouselItem key={item.mal_id} className="basis-1/4">
-        <AnimeCard anime={item} index={index} />
-      </CarouselItem>
-    ));
-  } catch (error) {
-    console.log(error);
-  }
-};
+//     return data.map((item: AnimeCardProp, index: number) => (
+//       <CarouselItem key={item.mal_id} className="basis-1/5">
+//         <AnimeCard anime={item} index={index} />
+//       </CarouselItem>
+//     ));
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+// export const fetchPopularAnime = async (pg: number, lm: number) => {
+//   try {
+//     const res = await fetch(
+//       `${animeApi}/top/anime?page=${pg}&limit=${lm}&filter=bypopularity&sort=asc&sfw`
+//     );
+//     const result = await res.json();
+//     const data = result?.data;
+//     // console.log(data);
+//     if (!data) return;
+
+//     return data.map((item: AnimeCardProp, index: number) => (
+//       <CarouselItem key={item.mal_id} className="basis-1/4">
+//         <AnimeCard anime={item} index={index} />
+//       </CarouselItem>
+//     ));
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 export const fetchPopularAnimeSlider = async (pg: number, lm: number) => {
   try {
     const res = await fetch(
-      `${animeApi}/anime?page=${pg}&limit=${lm}&order_by=popularity&sort=asc&sfw`
+      `${animeApi}/anime?sort=asc&sfw&page=${pg}&limit=${lm}&order_by=popularity`
     );
     const result = await res.json();
     const data = result?.data;

@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  fetchAiringAnime,
-  fetchPopularAnime,
-  fetchTopAnime,
-  fetchUpcomingAnime,
-} from "@/lib/actions/action";
+import { fetchCategoryAnimeCard } from "@/lib/actions/action";
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
 
@@ -17,25 +12,25 @@ const Category = () => {
 
   useEffect(() => {
     const fetchPopular = async () => {
-      const popularAnime = await fetchPopularAnime(1, 15);
+      const popularAnime = await fetchCategoryAnimeCard(1, 15, "bypopularity");
       setPopularData(popularAnime);
     };
     if (!popularData) fetchPopular();
 
     const fetchTop = async () => {
-      const topAnime = await fetchTopAnime(2, 15);
+      const topAnime = await fetchCategoryAnimeCard(2, 15, "");
       setTopData(topAnime);
     };
     if (!topData) fetchTop();
 
     const fetchUpcoming = async () => {
-      const upcomingAnime = await fetchUpcomingAnime(1, 15);
+      const upcomingAnime = await fetchCategoryAnimeCard(1, 15, "upcoming");
       setUpcomingData(upcomingAnime);
     };
     if (!upcomingData) fetchUpcoming();
 
     const fetchAiring = async () => {
-      const airingAnime = await fetchAiringAnime(1, 15);
+      const airingAnime = await fetchCategoryAnimeCard(1, 15, "airing");
       setAiringData(airingAnime);
     };
     if (!airingData) fetchAiring();

@@ -154,7 +154,7 @@ export interface AnimeInfoProp {
 export interface AnimeSliderPicture {
   mal_id: number;
   images: { jpg: { image_url: string; large_image_url: string } };
-  trailer: { images: { maximum_image_url: string } };
+  // trailer: { images: { maximum_image_url: string } };
 }
 
 export type AnimeSliderPicturesProps = AnimeSliderPicture[];

@@ -31,8 +31,8 @@ const Card = ({ data, head, loading = false }: AnimeCardProps) => {
           {!loading
             ? data
             : Array.from({ length: 10 }).map((_, index) => (
-                <CarouselItem key={index} className="basis-1/2 lg:basis-1/6">
-                  <div className="relative w-[30vh] h-[37vh] rounded-xl overflow-hidden scale-90 bg-slate-500/50 animate-pulse"></div>
+                <CarouselItem key={index} className="basis-1/2 lg:basis-1/5">
+                  <div className="w-48 lg:w-60 h-72 lg:h-[40vh] rounded-xl overflow-hidden scale-90 bg-slate-500/50 animate-pulse"></div>
                 </CarouselItem>
               ))}
         </CarouselContent>

@@ -154,7 +154,7 @@ export const fetchPopularAnimeSlider = async (pg: number, lm: number) => {
     // console.log(data);
     if (!data) return;
 
-    return <Slider anime={data} />;
+    return <Slider anime={data} loading={false} />;
   } catch (error) {
     console.log(error);
   }

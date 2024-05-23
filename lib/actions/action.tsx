@@ -97,67 +97,10 @@ export const fetchCategoryAnimeCard = async (
     console.log(error);
   }
 };
-// export const fetchUpcomingAnime = async (pg: number, lm: number) => {
-//   try {
-//     const res = await fetch(
-//       `${animeApi}/top/anime?page=${pg}&limit=${lm}&filter=upcoming&sort=asc&sfw`
-//     );
-//     const result = await res.json();
-//     const data = result?.data;
-//     // console.log(data);
-//     if (!data) return;
-
-//     return data.map((item: AnimeCardProp, index: number) => (
-//       <CarouselItem key={item.mal_id} className="basis-1/4">
-//         <AnimeCard anime={item} index={index} />
-//       </CarouselItem>
-//     ));
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-// export const fetchAiringAnime = async (pg: number, lm: number) => {
-//   try {
-//     const res = await fetch(
-//       `${animeApi}/top/anime?page=${pg}&limit=${lm}&filter=airing&sort=asc&sfw`
-//     );
-//     const result = await res.json();
-//     const data = result?.data;
-//     // console.log(data);
-//     if (!data) return;
-
-//     return data.map((item: AnimeCardProp, index: number) => (
-//       <CarouselItem key={item.mal_id} className="basis-1/5">
-//         <AnimeCard anime={item} index={index} />
-//       </CarouselItem>
-//     ));
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-// export const fetchPopularAnime = async (pg: number, lm: number) => {
-//   try {
-//     const res = await fetch(
-//       `${animeApi}/top/anime?page=${pg}&limit=${lm}&filter=bypopularity&sort=asc&sfw`
-//     );
-//     const result = await res.json();
-//     const data = result?.data;
-//     // console.log(data);
-//     if (!data) return;
-
-//     return data.map((item: AnimeCardProp, index: number) => (
-//       <CarouselItem key={item.mal_id} className="basis-1/4">
-//         <AnimeCard anime={item} index={index} />
-//       </CarouselItem>
-//     ));
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
 export const fetchPopularAnimeSlider = async (pg: number, lm: number) => {
   try {
     const res = await fetch(
-      `${animeApi}/anime?sort=asc&sfw&page=${pg}&limit=${lm}&order_by=popularity`
+      `${animeApi}/top/anime?rating=r17&page=${pg}&limit=${lm}&sfw`
     );
     const result = await res.json();
     const data = result?.data;

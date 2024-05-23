@@ -42,7 +42,7 @@ const Category = () => {
         data={popularData}
         head="popular"
       />
-      <Card loading={topData ? false : true} data={topData} head="Top" />
+      <Card loading={topData ? false : true} data={topData} head="top" />
       <Card
         loading={upcomingData ? false : true}
         data={upcomingData}

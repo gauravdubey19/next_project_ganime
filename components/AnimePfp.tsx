@@ -45,7 +45,7 @@ const AnimePfp = ({ anime, pic }: Prop) => {
             anime?.images?.jpg?.large_image_url
           })`,
         }}
-        className="relative w-full h-screen bg-cover bg-no-repeat overflow-hidden"
+        className="relative w-full h-screen bg-cover bg-no-repeat shadow-[0_0_20px_rgba(0,0,0,0.5)] rounded-b-3xl overflow-hidden"
       >
         <div
           onClick={() => router.back()}
@@ -147,22 +147,22 @@ const AnimePfp = ({ anime, pic }: Prop) => {
                 <span className="">{anime?.rating}</span>
               </div>
             </div>
-            <div
-              className={`w-full mt-6 lg:mt-0 px-1 text-justify overflow-y-scroll overflow-hidden`}
-            >
-              <span className="font-bold text-[red] capitalize">
-                Synopsis :{" "}
-              </span>
-              {anime?.synopsis}
-            </div>
-            {anime?.background && (
-              <div className="w-full h-14 mt-6 lg:mt-0 p-1 text-justify overflow-y-scroll overflow-hidden">
+            <div className="w-full overflow-y-scroll overflow-hidden">
+              <div className={`w-full mt-6 lg:mt-0 px-1 text-justify`}>
                 <span className="font-bold text-[red] capitalize">
-                  Backround :{" "}
+                  Synopsis :{" "}
                 </span>
-                {anime?.background}
+                {anime?.synopsis}
               </div>
-            )}
+              {anime?.background && (
+                <div className="w-full h-14 mt-6 lg:mt-0 p-1 text-justify">
+                  <span className="font-bold text-[red] capitalize">
+                    Backround :{" "}
+                  </span>
+                  {anime?.background}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </section>

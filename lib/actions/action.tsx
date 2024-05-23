@@ -1,12 +1,13 @@
 "use server";
 
-import { animeApi } from "../anime-api/anime-api";
+import { StreamApi, animeApi } from "../anime-api/anime-api";
 import { AnimeCardProp } from "@/constants/types";
 import { CarouselItem } from "@/components/ui/carousel";
 import AnimeCard from "@/components/AnimeCard";
 import AnimePfp from "@/components/AnimePfp";
 import Slider from "@/components/Slider";
 import SearchItems from "@/components/SearchItems";
+import Episode from "@/components/Episodes";
 
 export const fetchAnimeForSearchTop = async (pg: number, lm: number) => {
   try {
@@ -128,6 +129,53 @@ export const fetchAnimeInfo = async (id: number) => {
     if (!dataPic && !data) return;
 
     return <AnimePfp anime={data} pic={dataPic} />;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const fetchAnimeEpisodes = async (id: number) => {
+  try {
+    const res = await fetch(`${animeApi}/anime/${id}/videos`);
+    const result = await res.json();
+    const data = result?.data;
+    if (!data?.episodes || data.episodes.length === 0) {
+      return null;
+    }
+    // console.log(data?.episodes);
+
+    return <Episode episodes={data?.episodes} />;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const extractStreamEpisodeId = (url: string) => {
+  const regex = /anime\/\d+\/([^\/]+)\/episode\/(\d+)/;
+  const match = url.match(regex);
+  if (match) {
+    // Replace sequences of underscores with a single hyphen
+    const formattedTitle = match[1].replace(/_+/g, "-");
+    const id = `${formattedTitle}-episode-${match[2]}`;
+    // console.log(id);
+    return id;
+  }
+  return null;
+};
+
+export const fetchStreamEpisode = async (url: string) => {
+  try {
+    const streamId = extractStreamEpisodeId(url);
+    if (!streamId) return null;
+    console.log(streamId);
+
+    const res = await fetch(`${StreamApi}${streamId}`);
+    const result = await res.json();
+    const data = result;
+    if (!data) return null;
+
+    // console.log(data?.plyr);
+    return data;
   } catch (error) {
     console.log(error);
   }

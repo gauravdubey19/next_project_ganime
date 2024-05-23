@@ -172,3 +172,18 @@ export interface AnimeCardProps {
   head: string;
   loading: boolean;
 }
+
+export interface AnimeEpisodesProp {
+  mal_id: number;
+  title: string;
+  episode: string;
+  url: string;
+  images: { jpg: { image_url: string } };
+}
+export interface AnimeStreamProp {
+  info: {
+    title: string;
+  };
+  plyr: { main: string; backup: string };
+  nspl: { main: string; backup: string };
+}

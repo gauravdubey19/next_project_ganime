@@ -59,7 +59,7 @@ export const fetchCategoryAnime = async (
 ) => {
   try {
     const res = await fetch(
-      `${animeApi}/top/anime?filter=${filterBy}&page=${pg}&limit=${lm}&sort=asc&sfw`
+      `${animeApi}/top/anime?filter=${filterBy}&page=${pg}&limit=${lm}&sfw`
     );
     const result = await res.json();
     const data = result?.data;
@@ -81,7 +81,7 @@ export const fetchCategoryAnimeCard = async (
 ) => {
   try {
     const res = await fetch(
-      `${animeApi}/top/anime?filter=${filterBy}&page=${pg}&limit=${lm}&sort=asc&sfw`
+      `${animeApi}/top/anime?filter=${filterBy}&page=${pg}&limit=${lm}&sfw`
     );
     const result = await res.json();
     const data = result?.data;
@@ -133,7 +133,6 @@ export const fetchAnimeInfo = async (id: number) => {
   }
 };
 
-// export const fetchAnime = async (pg: number, lm: number) => {
 //   const url = `https://anime-db.p.rapidapi.com/anime?page=${pg}&size=${lm}`; //&search=Fullmetal&genres=Fantasy%2CDrama&sortBy=ranking&sortOrder=asc
 //   const options = {
 //     method: "GET",
@@ -145,18 +144,6 @@ export const fetchAnimeInfo = async (id: number) => {
 
 //   try {
 //     const response = await fetch(url, options);
-//     const result = await response.json();
-//     const data = result?.data;
-//     console.log(data);
-//     if (!data) return;
-
-//     return data.map((item: AnimeProp, index: number) => (
-//       <AnimeCard key={item._id} anime={item} index={index} />
-//     ));
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
 // https://api.jikan.moe/v4/anime/16498
 // "https://api.consumet.org/meta/anilist/trending?perPage=2"
 // `${process.env.NEXT_PUBLIC_ANIME_API_URL}demon?page=${pg}` //&limit=${lm}&order=popularity

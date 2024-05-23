@@ -34,20 +34,22 @@ const Card = ({ data, head, loading = false }: AnimeCardProps) => {
               <CarouselItem className="basis-1/2 lg:basis-1/5">
                 <Link
                   href={`/${head}`}
-                  className="w-48 lg:w-60 h-[2412.8px] lg:h-[339.375px] rounded-xl overflow-hidden scale-90 group flex-center gap-2 font-extrabold text-sm md:text-xl"
+                  className="w-48 lg:w-60 h-72 lg:h-[339.375px] bg-cover bg-no-repeat bg-[url('/load-more.gif')] rounded-xl overflow-hidden scale-90 group"
                 >
-                  Load more
-                  <IoIosArrowForward
-                    size={30}
-                    className="group-hover:fill-[red] group-hover:scale-105 group-hover:-ml-2 group-active:translate-x-1 ease-in-out duration-200"
-                  />
+                  <div className="w-full h-full bg-slate-500/50 flex-center gap-2 font-extrabold text-sm md:text-xl">
+                    Load more
+                    <IoIosArrowForward
+                      size={30}
+                      className="group-hover:fill-[red] group-hover:scale-105 group-hover:-ml-2 group-active:translate-x-1 ease-in-out duration-200"
+                    />
+                  </div>
                 </Link>
               </CarouselItem>
             </>
           ) : (
             Array.from({ length: 10 }).map((_, index) => (
               <CarouselItem key={index} className="basis-1/2 lg:basis-1/5">
-                <div className="w-48 lg:w-60 h-72 lg:h-[40vh] rounded-xl overflow-hidden scale-90 bg-slate-500/50 animate-pulse"></div>
+                <div className="w-48 lg:w-60 h-72 lg:h-[339.375px] rounded-xl overflow-hidden scale-90 bg-slate-500/50 animate-pulse"></div>
               </CarouselItem>
             ))
           )}

@@ -28,13 +28,29 @@ const Card = ({ data, head, loading = false }: AnimeCardProps) => {
       </div>
       <Carousel className="w-full h-auto -mt-8">
         <CarouselContent>
-          {!loading
-            ? data
-            : Array.from({ length: 10 }).map((_, index) => (
-                <CarouselItem key={index} className="basis-1/2 lg:basis-1/5">
-                  <div className="w-48 lg:w-60 h-72 lg:h-[40vh] rounded-xl overflow-hidden scale-90 bg-slate-500/50 animate-pulse"></div>
-                </CarouselItem>
-              ))}
+          {!loading ? (
+            <>
+              {data}
+              <CarouselItem className="basis-1/2 lg:basis-1/5">
+                <Link
+                  href={`/${head}`}
+                  className="w-48 lg:w-60 h-[2412.8px] lg:h-[339.375px] rounded-xl overflow-hidden scale-90 group flex-center gap-2 font-extrabold text-sm md:text-xl"
+                >
+                  Load more
+                  <IoIosArrowForward
+                    size={30}
+                    className="group-hover:fill-[red] group-hover:scale-105 group-hover:-ml-2 group-active:translate-x-1 ease-in-out duration-200"
+                  />
+                </Link>
+              </CarouselItem>
+            </>
+          ) : (
+            Array.from({ length: 10 }).map((_, index) => (
+              <CarouselItem key={index} className="basis-1/2 lg:basis-1/5">
+                <div className="w-48 lg:w-60 h-72 lg:h-[40vh] rounded-xl overflow-hidden scale-90 bg-slate-500/50 animate-pulse"></div>
+              </CarouselItem>
+            ))
+          )}
         </CarouselContent>
         <div className="hidden lg:flex">
           <CarouselPrevious className="bg-transparent border-none outline-none active:scale-95 ease-in-out duration-300" />

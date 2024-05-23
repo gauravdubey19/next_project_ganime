@@ -32,7 +32,7 @@ const Card = ({ data, head, loading = false }: AnimeCardProps) => {
           {!loading ? (
             <>
               {data}
-              <CarouselItem className="basis-1 rounded-xl overflow-hidden">
+              <CarouselItem className="basis-1/2 lg:basis-1/5">
                 <div className="relative w-48 lg:w-60 h-72 lg:h-[339.375px] rounded-xl overflow-hidden scale-90 group hover:scale-95 ease-in-out duration-300">
                   <Image
                     src="/load-more.gif"

@@ -15,16 +15,16 @@ const Episode = ({ episodes }: EpisodesProps) => {
   useEffect(() => {
     const getStream = async () => {
       const data = await fetchStreamEpisode(url);
-      console.log(data);
+      // console.log(data);
       setStream(data);
     };
     if (!stream) getStream();
   }, [url, stream]);
   return (
     <>
-      <section className="w-full h-[95vh] lg:h-[92vh] p-4 lg:px-8 flex-between flex-col lg:flex-row gap-2 ease-in-out duration-300">
+      <section className="w-full max-h-[95vh] lg:h-[92vh] p-4 lg:px-8 flex-between flex-col lg:flex-row gap-2 ease-in-out duration-300">
         {stream !== null && (
-          <div className="w-full h-full ">
+          <div className="w-full h-full">
             <iframe
               src={stream?.plyr?.main || stream?.plyr?.backup}
               scrolling="no"

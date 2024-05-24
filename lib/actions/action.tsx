@@ -138,13 +138,12 @@ export const fetchAnimeEpisodes = async (id: number) => {
   try {
     const res = await fetch(`${animeApi}/anime/${id}/videos`);
     const result = await res.json();
-    const data = result?.data;
-    if (!data?.episodes || data.episodes.length === 0) {
+    const data = result?.data?.episodes.reverse();
+    if (!data || data.length === 0) {
       return null;
     }
-    // console.log(data?.episodes);
-
-    return <Episode episodes={data?.episodes} />;
+    // console.log(data);
+    return <Episode episodes={data} />;
   } catch (error) {
     console.log(error);
   }

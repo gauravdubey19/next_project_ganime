@@ -2,12 +2,12 @@
 
 import { StreamApi, animeApi } from "../anime-api/anime-api";
 import { AnimeCardProp } from "@/constants/types";
-import { CarouselItem } from "@/components/ui/carousel";
 import AnimeCard from "@/components/AnimeCard";
 import AnimePfp from "@/components/AnimePfp";
 import Slider from "@/components/Slider";
 import SearchItems from "@/components/SearchItems";
 import Episode from "@/components/Episodes";
+import Card from "@/components/Card";
 
 export const fetchAnimeForSearchTop = async (pg: number, lm: number) => {
   try {
@@ -89,11 +89,18 @@ export const fetchCategoryAnimeCard = async (
     // console.log(data);
     if (!data) return;
 
-    return data.map((item: AnimeCardProp, index: number) => (
-      <CarouselItem key={item.mal_id} className="basis-1/4">
-        <AnimeCard anime={item} index={index} />
-      </CarouselItem>
-    ));
+    return (
+      <Card
+        data={data}
+        head={
+          filterBy == "bypopularity"
+            ? "popular"
+            : filterBy == ""
+            ? "top"
+            : filterBy
+        }
+      />
+    );
   } catch (error) {
     console.log(error);
   }

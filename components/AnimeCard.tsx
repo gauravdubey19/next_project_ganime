@@ -18,9 +18,9 @@ function AnimeCard({ anime, index }: Prop) {
           animate="visible"
           transition={{ delay: index * 0.25, ease: "easeInOut", duration: 0.5 }}
           viewport={{ amount: 0 }}
-          className="group max-w-sm rounded-2xl relative w-48 lg:w-60 shadow-md shadow-zinc-800 hover:shadow-[red] scale-90 hover:scale-95 active:translate-y-1 ease-in-out duration-300 overflow-hidden"
+          className="group max-w-sm rounded-2xl relative w-48 lg:w-60 h-72 lg:h-[339px] shadow-md shadow-zinc-800 hover:shadow-[red] scale-90 hover:scale-95 active:translate-y-1 ease-in-out duration-300 overflow-hidden"
         >
-          <div className="relative w-full h-72 lg:h-[37vh] rounded-xl overflow-hidden">
+          <div className="relative w-full h-56 lg:h-[45vh] rounded-xl overflow-hidden">
             <Image
               src={anime?.images?.jpg?.large_image_url}
               alt={anime?.title_english}
@@ -29,7 +29,7 @@ function AnimeCard({ anime, index }: Prop) {
               className="w-full scale-105 group-hover:scale-100 ease-in-out duration-300"
             />
           </div>
-          <div className="py-4 flex flex-col gap-3 px-2">
+          <div className="py-1 flex flex-col gap-1 px-2">
             <div className="flex justify-between items-center gap-1">
               <h2 className="w-full font-bold text-white text-lg lg:text-xl capitalize line-clamp-1 scale-95 group-hover:scale-100 group-hover:text-[red] ease-in-out duration-300">
                 {anime?.title_english}

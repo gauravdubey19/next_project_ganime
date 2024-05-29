@@ -22,7 +22,7 @@ const Episode = ({ episodes }: EpisodesProps) => {
   }, [url, stream]);
   return (
     <>
-      <section className="w-full max-h-[95vh] lg:h-[92vh] p-4 lg:px-8 flex-between flex-col lg:flex-row gap-2 ease-in-out duration-300">
+      <section className="w-full max-h-[95vh] lg:h-[92vh] p-4 lg:px-8 flex-between flex-col lg:flex-row gap-2 animate-slideDown ease-in-out duration-300">
         {stream !== null && (
           <div className="w-full h-full">
             <iframe

@@ -15,7 +15,7 @@ import AnimeCard from "./AnimeCard";
 const Card = ({ data, head }: AnimeCardProps) => {
   return (
     <>
-      <div className="flex-between">
+      <div className="flex-between animate-slideDown">
         <h1 className="text-3xl lg:text-5xl font-bold capitalize">{head}</h1>
         <Link
           href={`/${head}`}

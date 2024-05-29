@@ -21,9 +21,9 @@ export default function Hero() {
       {slider ? (
         slider
       ) : (
-        <>
+        <div className="animate-slideDown">
           <Slider loading={true} anime={animeSliderSample} />
-        </>
+        </div>
       )}
     </>
   );

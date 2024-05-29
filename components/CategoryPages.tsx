@@ -9,7 +9,7 @@ const CategoryPages = ({
   head: string;
 }) => {
   return (
-    <main className="sm:p-16 py-16 px-4 lg:px-8 flex flex-col gap-10 text-white">
+    <main className="sm:p-16 py-16 px-4 lg:px-8 flex flex-col gap-10 text-white animate-slideDown">
       <div className="flex gap-4">
         <Goback />
         <h2 className="text-3xl font-bold capitalize">{head + " "}Animes</h2>

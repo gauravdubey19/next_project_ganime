@@ -6,7 +6,7 @@ async function Home() {
     <>
       <Hero />
       <main className="sm:p-16 py-16 px-8 flex flex-col gap-10 text-white">
-        <h2 className="text-3xl font-bold">Explore Anime</h2>
+        <h2 className="text-3xl font-bold animate-slideDown">Explore Anime</h2>
         <Category />
       </main>
     </>

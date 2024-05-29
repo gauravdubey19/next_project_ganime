@@ -16,3 +16,53 @@ const Category = async () => {
 };
 
 export default Category;
+
+// "use client";
+
+// import { useEffect, useState } from "react";
+// import { fetchCategoryAnimeCard } from "@/lib/actions/action";
+
+// const Category = () => {
+//   const [popularAnime, setPopularAnime] = useState<any>();
+//   const [topAnime, setTopAnime] = useState<any>();
+//   const [upcomingAnime, setUpcomingAnime] = useState<any>();
+//   const [airingAnime, setAiringAnime] = useState<any>();
+
+//   useEffect(() => {
+//     const fetchP = async () => {
+//       const popularData = await fetchCategoryAnimeCard(1, 15, "bypopularity");
+//       setPopularAnime(popularData);
+//     };
+//     if (!popularAnime) fetchP();
+
+//     const fetchT = async () => {
+//       const topData = await fetchCategoryAnimeCard(2, 15, "");
+//       setTopAnime(topData);
+//     };
+//     if (!topAnime) fetchT();
+
+//     const fetchU = async () => {
+//       const upcomingData = await fetchCategoryAnimeCard(1, 15, "upcoming");
+//       setUpcomingAnime(upcomingData);
+//     };
+//     if (!upcomingAnime) fetchU();
+
+//     const fetchA = async () => {
+//       const airingData = await fetchCategoryAnimeCard(1, 15, "airing");
+//       setAiringAnime(airingData);
+//     };
+//     if (!airingAnime) fetchA();
+//   }, [popularAnime, topAnime, upcomingAnime, airingAnime]);
+
+//   if (!popularAnime && !topAnime && !upcomingAnime && !airingAnime) return;
+//   return (
+//     <>
+//       {popularAnime}
+//       {topAnime}
+//       {upcomingAnime}
+//       {airingAnime}
+//     </>
+//   );
+// };
+
+// export default Category;

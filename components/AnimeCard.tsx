@@ -20,7 +20,7 @@ function AnimeCard({ anime, index }: Prop) {
           viewport={{ amount: 0 }}
           className="group max-w-sm rounded-2xl relative w-48 lg:w-60 h-72 lg:h-[339px] shadow-md shadow-zinc-800 hover:shadow-[red] scale-90 hover:scale-95 active:translate-y-1 ease-in-out duration-300 overflow-hidden"
         >
-          <div className="relative w-full h-56 lg:h-[45vh] rounded-xl overflow-hidden">
+          <div className="relative w-full h-56 lg:h-[42vh] rounded-xl overflow-hidden">
             <Image
               src={anime?.images?.jpg?.large_image_url}
               alt={anime?.title_english}

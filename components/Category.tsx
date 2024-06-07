@@ -1,10 +1,15 @@
-import { fetchCategoryAnimeCard } from "@/lib/actions/action";
+import {
+  fetchAiringAnimeCard,
+  fetchPopularAnimeCard,
+  fetchTopAnimeCard,
+  fetchUpcomingAnimeCard,
+} from "@/lib/actions/action";
 
 const Category = async () => {
-  const popularAnime = await fetchCategoryAnimeCard(1, 15, "bypopularity");
-  const topAnime = await fetchCategoryAnimeCard(2, 15, "");
-  const upcomingAnime = await fetchCategoryAnimeCard(1, 15, "upcoming");
-  const airingAnime = await fetchCategoryAnimeCard(1, 15, "airing");
+  const popularAnime = await fetchPopularAnimeCard(1, 15);
+  const topAnime = await fetchTopAnimeCard(1, 15);
+  const upcomingAnime = await fetchUpcomingAnimeCard(1, 15);
+  const airingAnime = await fetchAiringAnimeCard(1, 15);
   return (
     <>
       {popularAnime}
@@ -16,6 +21,25 @@ const Category = async () => {
 };
 
 export default Category;
+
+// import { fetchCategoryAnimeCard } from "@/lib/actions/action";
+
+// const Category = async () => {
+//   const popularAnime = await fetchCategoryAnimeCard(1, 15, "bypopularity");
+//   const topAnime = await fetchCategoryAnimeCard(2, 15, "");
+//   const upcomingAnime = await fetchCategoryAnimeCard(1, 15, "upcoming");
+//   const airingAnime = await fetchCategoryAnimeCard(1, 15, "airing");
+//   return (
+//     <>
+//       {popularAnime}
+//       {topAnime}
+//       {upcomingAnime}
+//       {airingAnime}
+//     </>
+//   );
+// };
+
+// export default Category;
 
 // "use client";
 

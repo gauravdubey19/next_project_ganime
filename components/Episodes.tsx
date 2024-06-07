@@ -38,7 +38,11 @@ const Episode = ({ episodes }: EpisodesProps) => {
         )}
         <div className="w-full h-full p-1 overflow-hidden">
           <span className="w-full text-xl font-bold text-[red]">Episodes:</span>
-          <div className="w-full h-full flex-center flex-wrap gap-1 overflow-y-scroll overflow-hidden">
+          <div
+            className={`w-full ${
+              stream !== null ? "h-[50vh]" : "h-[85vh]"
+            } lg:h-[95%] flex-center flex-wrap gap-1 overflow-y-scroll overflow-hidden`}
+          >
             {episodes?.map((ep) => (
               <div
                 key={ep?.mal_id}

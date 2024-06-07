@@ -75,95 +75,95 @@ export const fetchCategoryAnime = async (
   }
 };
 
-export const fetchPopularAnimeCard = async (pg: number, lm: number) => {
-  try {
-    const res = await fetch(
-      `${animeApi}/top/anime?filter=bypopularity&page=${pg}&limit=${lm}&sfw`
-    );
-    const result = await res.json();
-    const data = result?.data;
-    // console.log(data);
-    if (!data) return;
-
-    return <Card data={data} head="bypopularity" />;
-  } catch (error) {
-    console.log(error);
-  }
-};
-export const fetchTopAnimeCard = async (pg: number, lm: number) => {
-  try {
-    const res = await fetch(`${animeApi}/top/anime?page=${pg}&limit=${lm}&sfw`);
-    const result = await res.json();
-    const data = result?.data;
-    // console.log(data);
-    if (!data) return;
-
-    return <Card data={data} head="top" />;
-  } catch (error) {
-    console.log(error);
-  }
-};
-export const fetchUpcomingAnimeCard = async (pg: number, lm: number) => {
-  try {
-    const res = await fetch(
-      `${animeApi}/top/anime?filter=upcoming&page=${pg}&limit=${lm}&sfw`
-    );
-    const result = await res.json();
-    const data = result?.data;
-    // console.log(data);
-    if (!data) return;
-
-    return <Card data={data} head="upcoming" />;
-  } catch (error) {
-    console.log(error);
-  }
-};
-export const fetchAiringAnimeCard = async (pg: number, lm: number) => {
-  try {
-    const res = await fetch(
-      `${animeApi}/top/anime?filter=airing&page=${pg}&limit=${lm}&sfw`
-    );
-    const result = await res.json();
-    const data = result?.data;
-    // console.log(data);
-    if (!data) return;
-
-    return <Card data={data} head="airing" />;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-// export const fetchCategoryAnimeCard = async (
-//   pg: number,
-//   lm: number,
-//   filterBy: string
-// ) => {
+// export const fetchPopularAnimeCard = async (pg: number, lm: number) => {
 //   try {
 //     const res = await fetch(
-//       `${animeApi}/top/anime?filter=${filterBy}&page=${pg}&limit=${lm}&sfw`
+//       `${animeApi}/top/anime?filter=bypopularity&page=${pg}&limit=${lm}&sfw`
 //     );
 //     const result = await res.json();
 //     const data = result?.data;
 //     // console.log(data);
 //     if (!data) return;
 
-//     return (
-//       <Card
-//         data={data}
-//         head={
-//           filterBy == "bypopularity"
-//             ? "popular"
-//             : filterBy == ""
-//             ? "top"
-//             : filterBy
-//         }
-//       />
-//     );
+//     return <Card data={data} head="popularity" />;
 //   } catch (error) {
 //     console.log(error);
 //   }
 // };
+// export const fetchTopAnimeCard = async (pg: number, lm: number) => {
+//   try {
+//     const res = await fetch(`${animeApi}/top/anime?page=${pg}&limit=${lm}&sfw`);
+//     const result = await res.json();
+//     const data = result?.data;
+//     // console.log(data);
+//     if (!data) return;
+
+//     return <Card data={data} head="top" />;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+// export const fetchUpcomingAnimeCard = async (pg: number, lm: number) => {
+//   try {
+//     const res = await fetch(
+//       `${animeApi}/top/anime?filter=upcoming&page=${pg}&limit=${lm}&sfw`
+//     );
+//     const result = await res.json();
+//     const data = result?.data;
+//     // console.log(data);
+//     if (!data) return;
+
+//     return <Card data={data} head="upcoming" />;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+// export const fetchAiringAnimeCard = async (pg: number, lm: number) => {
+//   try {
+//     const res = await fetch(
+//       `${animeApi}/top/anime?filter=airing&page=${pg}&limit=${lm}&sfw`
+//     );
+//     const result = await res.json();
+//     const data = result?.data;
+//     // console.log(data);
+//     if (!data) return;
+
+//     return <Card data={data} head="airing" />;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+
+export const fetchCategoryAnimeCard = async (
+  pg: number,
+  lm: number,
+  filterBy: string
+) => {
+  try {
+    const res = await fetch(
+      `${animeApi}/top/anime?filter=${filterBy}&page=${pg}&limit=${lm}&sfw`
+    );
+    const result = await res.json();
+    const data = result?.data;
+    // console.log(data);
+    if (!data) return;
+
+    return (
+      <Card
+        data={data}
+        head={
+          filterBy == "bypopularity"
+            ? "popular"
+            : filterBy == ""
+            ? "top"
+            : filterBy
+        }
+      />
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 export const fetchPopularAnimeSlider = async (pg: number, lm: number) => {
   try {

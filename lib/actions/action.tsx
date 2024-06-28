@@ -220,7 +220,7 @@ const extractStreamEpisodeId = (url: string) => {
   const regex = /anime\/\d+\/([^\/]+)\/episode\/(\d+)/;
   const match = url.match(regex);
   if (match) {
-    // Replace sequences of underscores with a single hyphen
+    // Replacinng sequences of underscores with a single hyphen
     const formattedTitle = match[1].replace(/_+/g, "-");
     const id = `${formattedTitle}-episode-${match[2]}`;
     // console.log(id);
@@ -240,7 +240,7 @@ export const fetchStreamEpisode = async (url: string) => {
     const data = result;
     if (!data) return null;
 
-    // console.log(data?.plyr);
+    console.log(data);
     return data;
   } catch (error) {
     console.log(error);

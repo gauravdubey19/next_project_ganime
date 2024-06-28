@@ -9,7 +9,7 @@ import Navbar from "@/components/Navbar";
 const dmSans = DM_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "GAnime",
+  title: "GoAnime",
   description: "Your favorite anime, all in one place.",
   icons: { icon: "logo.png" },
 };
@@ -22,11 +22,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={dmSans.className}>
-        <Navbar appName="GAnime" />
+        <Navbar appName="GoAnime" />
         {/* mt-10 */}
         <main className=" mx-auto bg-[#0F1117]">
           {children}
-          <Footer appName="GAnime" />
+          <Footer appName="GoAnime" />
         </main>
       </body>
     </html>
